@@ -1,0 +1,42 @@
+.Navbar {
+  position: fixed;
+  left: 0;
+  bottom: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* z-index: 0; */
+  padding: 1rem 0;
+}
+
+.container {
+  display: flex;
+  max-width: 800px;
+  width: 100%;
+  justify-content: space-between;
+  /* background-color: grey; */
+  padding: 0 80px;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.55);
+  max-width: 50%;
+  height: 20px;
+  border-radius: 10px;
+}
+
+.list_circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: white;
+  margin: 0 5px;
+  transition: background 0.3s;
+}
+
+.list_circle.active {
+  background: #0077ff;
+}
