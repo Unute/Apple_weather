@@ -18,7 +18,7 @@ const Navbar = ({ cities, city, setCity }) => {
           ))}
         </div>
       </div>
-      <Link className={cl.link} to="/change"><img src="/list.svg" alt="список" /></Link>
+      <Link className={cl.link} to="/change"><img className={cl.icon} src="/list.svg" alt="список" /></Link>
     </div>
   )
 }
