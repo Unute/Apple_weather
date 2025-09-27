@@ -5,7 +5,7 @@ import './App.css'
 import AppRotes from './components/AppRoutes'
 import Navbar from './components/UI/Navbar/Navbar'
 
-const cities = ['Moscow', 'Minsk', 'New York', 'London', 'Tokyo', 'Berlin', 'Paris', 'Saint Petersburg', 'Stavropol'];
+const cities = ['Moscow', 'Minsk', 'New York', 'London', 'Tokyo', 'Berlin', 'Paris', 'Saint Petersburg', 'Stavropol', 'Essentuki'];
 
 function App() {
     const [city, setCity] = useState('Moscow');

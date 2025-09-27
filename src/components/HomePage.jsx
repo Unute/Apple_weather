@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useRef } from 'react'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import HeaderWeather from './HeaderWeather';
@@ -12,6 +12,7 @@ import Button from './Button';
 const HomePage = ({ city, weather, cities, setCity }) => {
   const [weatherHours, setWeatherHours] = useState([]);
   const [fade, setFade] = useState(true);
+  const touchStartX = useRef(null);
 
   const apiKey = '618502c1a3bd6bd56665c48117c69c8b';
 
@@ -51,20 +52,41 @@ const HomePage = ({ city, weather, cities, setCity }) => {
   }, [weather]);
 
   function handlePrevCity() {
-
     const idx = cities.indexOf(city);
     const prevIdx = (idx - 1 + cities.length) % cities.length;
     setCity(cities[prevIdx]);
   }
-
   function handleNextCity() {
     const idx = cities.indexOf(city);
     const nextIdx = (idx + 1) % cities.length;
     setCity(cities[nextIdx]);
   }
 
+  function handleTouchStart(e) {
+    touchStartX.current = e.touches[0].clientX;
+  }
+
+  function handleTouchEnd(e) {
+    if (touchStartX.current === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const deltaX = touchEndX - touchStartX.current;
+    if (Math.abs(deltaX) > 50) { // порог свайпа
+      if (deltaX > 0) {
+        handlePrevCity();
+      } else {
+        handleNextCity();
+      }
+    }
+    touchStartX.current = null;
+  }
+
+
   return (
-    <>
+    <div
+      className={`weather ${fade ? 'fade show' : 'fade'}`}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       <Button onClick={handlePrevCity} direction="left" />
       <div className={`weather ${fade ? 'fade show' : 'fade'}`}>
         <HeaderWeather weather={weather} />
@@ -82,7 +104,7 @@ const HomePage = ({ city, weather, cities, setCity }) => {
         </div>
       </div>
       <Button onClick={handleNextCity} direction="right" />
-    </>
+    </div>
   )
 }
 
