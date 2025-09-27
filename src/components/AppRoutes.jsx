@@ -31,6 +31,7 @@ const AppRoutes = ({city, cities, setCity}) => {
         results[c] = response.data;
       }
       setAllWeather(results);
+      // consol
     }
     fetchAllWeather();
   }, []);
