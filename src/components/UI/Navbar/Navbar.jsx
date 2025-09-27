@@ -6,7 +6,7 @@ const Navbar = ({ cities, city }) => {
   return (
     <div className={cl.Navbar}>
       <div className={cl.container}>
-        <div></div>
+        {/* <div></div> */}
         <div className={cl.list}>
           {cities.map((c) => (
             <div
@@ -16,7 +16,7 @@ const Navbar = ({ cities, city }) => {
           ))}
         </div>
 
-        <Link to="/change"><img src="/src/assets/list.svg" alt="список" /></Link>
+        {/* <Link to="/change"><img src="/src/assets/list.svg" alt="список" /></Link> */}
       </div>
     </div>
   )
