@@ -82,15 +82,15 @@ const HomePage = ({ city, weather, cities, setCity }) => {
 
 
   return (
-    <div
-      className={`weather ${fade ? 'fade show' : 'fade'}`}
+    <main
+      className={`weather-wrapper ${fade ? 'fade show' : 'fade'}`}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
       <Button onClick={handlePrevCity} direction="left" />
-      <div className={`weather ${fade ? 'fade show' : 'fade'}`}>
+      <section className="weather">
         <HeaderWeather weather={weather} />
-        <div className='weatherDay'>
+        <section className="weatherDay">
           <Wind weather={weather} windDirection={windDirection} />
           <Br />
           <div className='tempDayHours'>
@@ -101,10 +101,10 @@ const HomePage = ({ city, weather, cities, setCity }) => {
             <TempDayHour weatherHours={weatherHours} id={4} />
             <TempDayHour weatherHours={weatherHours} id={5} />
           </div>
-        </div>
-      </div>
+        </section>
+      </section>
       <Button onClick={handleNextCity} direction="right" />
-    </div>
+    </main>
   )
 }
 

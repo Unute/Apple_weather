@@ -55,14 +55,14 @@ body::before {
 }
 
 .weatherDay {
-  background: rgba(255, 255, 255, 0.55); /* полупрозрачный белый */
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15); /* мягкая тень */
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
   border-radius: 1.5rem;
-  backdrop-filter: blur(12px); /* эффект стекла */
-  border: 1px solid rgba(255, 255, 255, 0.18); /* светлая рамка */
+  backdrop-filter: blur(12px); 
+  border: 1px solid rgba(255, 255, 255, 0.18);
   transition: box-shadow 0.2s;
-  margin-top: 4rem;
-  max-width: 600px;
+  margin-top: 3rem;
+  max-width: 880px;
   width: 100%;
 }
 
@@ -177,12 +177,12 @@ body::before {
   .weatherDay {
     max-width: 98vw;
     margin-top: 2rem;
-    padding: 1rem 0.5rem;
-    border-radius: 1rem;
+    padding: 0.5rem 0.25rem;
+    border-radius: 1.5rem;
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1045px) {
   .arrow-button {
     display: none;
   }
@@ -194,6 +194,7 @@ body::before {
     max-width: 100vw;
     margin-top: 1rem;
     padding: 0.5rem 0.25rem;
-    border-radius: 0.75rem;
+    border-radius: 1.5rem;
   }
 }
+
