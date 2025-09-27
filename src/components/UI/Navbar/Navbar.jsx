@@ -2,22 +2,23 @@ import React from 'react'
 import cl from './Navbar.module.css'
 import { Link, Route, Routes } from 'react-router-dom'
 
-const Navbar = ({ cities, city }) => {
+const Navbar = ({ cities, city, setCity }) => {
   return (
     <div className={cl.Navbar}>
       <div className={cl.container}>
-        {/* <div></div> */}
         <div className={cl.list}>
           {cities.map((c) => (
-            <div
+            <button
+              onClick={() => {
+                setCity(c);
+              }}
               key={c}
               className={cl.list_circle + (c === city ? ' ' + cl.active : '')}
-            ></div>
+            ></button>
           ))}
         </div>
-
-        {/* <Link to="/change"><img src="/src/assets/list.svg" alt="список" /></Link> */}
       </div>
+      <Link className={cl.link} to="/change"><img src="/list.svg" alt="список" /></Link>
     </div>
   )
 }

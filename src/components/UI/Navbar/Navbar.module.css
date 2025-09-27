@@ -14,18 +14,13 @@
   display: flex;
   max-width: 800px;
   width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  /* background-color: grey; */
   padding: 0 80px;
 }
 
 .list {
   display: flex;
   align-items: center;
-  justify-content: center;
   background-color: rgba(255, 255, 255, 0.55);
-  /* max-width: 50%; */
   height: 20px;
   border-radius: 10px;
   margin: 0 auto;
@@ -56,4 +51,10 @@
     height: 8px;
     margin: 0 3px;
   }
+}
+
+.link {
+  position: absolute;
+  right: 60px;
+  bottom: 20px;
 }
