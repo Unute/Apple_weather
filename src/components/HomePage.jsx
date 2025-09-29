@@ -15,8 +15,32 @@ const HomePage = ({ city, weather, cities, setCity }) => {
   const [weatherHours, setWeatherHours] = useState([]);
   const [fade, setFade] = useState(true);
   const touchStartX = useRef(null);
-
+  const [max, setMax] = useState({})
+  const [min, setMin] = useState({})
   const apiKey = '618502c1a3bd6bd56665c48117c69c8b';
+  
+  // функция для получения всех данных на определенный день( до 5 дней)
+  const getTomorrowWeather = (day) => {
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + day);
+    const tomorrowStr = tomorrow.toISOString().slice(0, 10);
+    return weatherHours.filter(item => item.dt_txt.startsWith(tomorrowStr));
+  };
+
+  useEffect(() => {
+    const maxTemps = {};
+    const minTemps = {};
+    for (let i = 0; i < 5; i++) {
+      const dayWeather = getTomorrowWeather(i)
+      const temps = dayWeather.map(item => item.main.temp)
+      maxTemps[i] = temps.length ? Math.round(Math.max(...temps)) : null;
+      minTemps[i] = temps.length ? Math.round(Math.min(...temps)) : null;
+    }
+    setMax(maxTemps)
+    setMin(minTemps)
+  }, [weatherHours])
+
 
   useEffect(() => {
     fetchWeatherHours();
@@ -30,7 +54,7 @@ const HomePage = ({ city, weather, cities, setCity }) => {
       `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric&lang=ru`
     );
     setWeatherHours(response.data.list);
-    console.log(response.data.list);
+    // console.log(response.data.list);
   }
 
   const windDirection = useMemo(() => {
@@ -86,10 +110,10 @@ const HomePage = ({ city, weather, cities, setCity }) => {
     >
       <Button onClick={handlePrevCity} direction="left" />
       <section className="weather">
-        <HeaderWeather weather={weather} />
+        <HeaderWeather weather={weather} max={max} min={min}/>
         <WeatherThisDay weather={weather} windDirection={windDirection} weatherHours={weatherHours} />
-        
-        <FiveDayContent weatherHours={weatherHours}/>
+
+        <FiveDayContent weatherHours={weatherHours} max={max} min={min} dayWeather={getTomorrowWeather} />
       </section>
       <Button onClick={handleNextCity} direction="right" />
     </main>

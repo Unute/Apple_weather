@@ -17,7 +17,7 @@ const AppRoutes = ({city, cities, setCity}) => {
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=ru`
       );
       setWeather(response.data);
-      console.log(response.data);
+      // console.log(response.data);
     }
     fetchWeather();
   }, [city]);
