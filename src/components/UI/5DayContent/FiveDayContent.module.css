@@ -56,3 +56,29 @@
   width: 60%;
   gap: 10px;
 }
+
+.thermoCapsule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  margin: 0.5rem 0;
+  width: 100px;
+}
+
+.thermoLine {
+  position: relative;
+  width: 100px;
+  height: 8px;
+  background: #e0e7ef;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.thermoFill {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #3a5ba0 0%, #aeefff 100%);
+  border-radius: 4px;
+}
