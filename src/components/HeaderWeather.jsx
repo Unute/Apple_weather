@@ -3,6 +3,7 @@ import React from 'react'
 
 
 const HeaderWeather = ({weather}) => {
+  // console.log(weather.name);
   return (
     <div>
       {weather ? (

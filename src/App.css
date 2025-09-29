@@ -58,8 +58,6 @@ body::before {
   background: rgba(255, 255, 255, 0.55);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
   border-radius: 1.5rem;
-  backdrop-filter: blur(12px); 
-  border: 1px solid rgba(255, 255, 255, 0.18);
   transition: box-shadow 0.2s;
   margin-top: 3rem;
   max-width: 880px;
@@ -67,8 +65,9 @@ body::before {
 }
 
 .wind {
+  text-align: left;
   margin: 0 auto;
-  max-width: 400px;
+  width: 90%;
   padding-top: 1rem;
   padding-bottom: 0.5rem;
   font-size: 1.1rem;
@@ -197,4 +196,6 @@ body::before {
     border-radius: 1.5rem;
   }
 }
+
+
 

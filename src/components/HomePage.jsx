@@ -6,6 +6,8 @@ import Br from './Br';
 import TempDayHour from './TempDayHour';
 import Wind from './Wind';
 import Button from './Button';
+import WeatherThisDay from './WeatherThisDay';
+import FiveDayContent from './UI/5DayContent/FiveDayContent';
 // import 
 
 
@@ -17,23 +19,18 @@ const HomePage = ({ city, weather, cities, setCity }) => {
   const apiKey = '618502c1a3bd6bd56665c48117c69c8b';
 
   useEffect(() => {
+    fetchWeatherHours();
     setFade(false);
     const timer = setTimeout(() => setFade(true), 300);
-    console.log(1);
     return () => clearTimeout(timer)
   }, [city])
-
-  useEffect(() => {
-    fetchWeatherHours();
-  }, []);
 
   const fetchWeatherHours = async () => {
     const response = await axios.get(
       `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric&lang=ru`
     );
-    console.log('2');
-    console.log(response.data.list);
     setWeatherHours(response.data.list);
+    console.log(response.data.list);
   }
 
   const windDirection = useMemo(() => {
@@ -90,18 +87,9 @@ const HomePage = ({ city, weather, cities, setCity }) => {
       <Button onClick={handlePrevCity} direction="left" />
       <section className="weather">
         <HeaderWeather weather={weather} />
-        <section className="weatherDay">
-          <Wind weather={weather} windDirection={windDirection} />
-          <Br />
-          <div className='tempDayHours'>
-            <TempDayHour weatherHours={weatherHours} id={0} />
-            <TempDayHour weatherHours={weatherHours} id={1} />
-            <TempDayHour weatherHours={weatherHours} id={2} />
-            <TempDayHour weatherHours={weatherHours} id={3} />
-            <TempDayHour weatherHours={weatherHours} id={4} />
-            <TempDayHour weatherHours={weatherHours} id={5} />
-          </div>
-        </section>
+        <WeatherThisDay weather={weather} windDirection={windDirection} weatherHours={weatherHours} />
+        
+        <FiveDayContent weatherHours={weatherHours}/>
       </section>
       <Button onClick={handleNextCity} direction="right" />
     </main>

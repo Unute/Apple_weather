@@ -1,0 +1,51 @@
+.FiveDayContent {
+  margin-top: 0.75rem;
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  border-radius: 1.5rem;
+  max-width: 880px;
+  width: 100%;
+  transition: box-shadow 0.2s;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.Header {
+  margin-top: 0.5rem;
+  width: 90%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1.1rem;
+  color: rgb(88, 88, 88);;
+}
+
+.calendar {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.Content {
+  display: flex;
+  width: 90%;
+  font-size: 1.25rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.dayWeek {
+  text-transform: capitalize;
+}
+
+.icon {
+
+}
+
+.temp {
+  
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  width: 60%;
+}

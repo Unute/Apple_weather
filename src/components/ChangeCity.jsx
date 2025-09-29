@@ -10,10 +10,13 @@ const ChangeCity = ({ allWeather, setCity, city }) => {
     navigate('/');
   }
 
+  console.log(allWeather[city]);
+
+
   return (
     <button className='change_city' onClick={() => handleCityChange(city)}>
       <div className='city-info'>
-        <div className='city-name'>{city}</div>
+        <div className='city-name'>{allWeather[city] ? allWeather[city].name : city}</div>
         <div className='city-description'>
           {allWeather[city] ? allWeather[city].weather[0].description : '--'}
         </div>
