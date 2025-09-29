@@ -11,9 +11,9 @@ const EveryDay = ({max, min, id, children, weatherDay }) => {
   return (
     <div className={cl.Content}>
       <p className={cl.dayWeek}>{children}</p>
-      <div className={cl.icon}><img className={cl.icon_img} src={iconUrl} alt="погода" /></div>
 
       <div className={cl.temp}>
+      <div className={cl.icon}><img className={cl.icon_img} src={iconUrl} alt="погода" /></div>
         <div className={cl.temp_night}>{min[id]}°</div>
         <Br />
         <div className={cl.temp_day}>{max[id]}°</div>

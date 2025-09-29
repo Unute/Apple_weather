@@ -4,8 +4,16 @@ import Br from '../../Br'
 import EveryDay from './EveryDay'
 
 
-const FiveDayContent = ({min, max, dayWeather}) => {
+const FiveDayContent = ({ min, max, dayWeather }) => {
   // console.log(dayWeather(1)); это == getTomorrowWeather(1) из HomePage
+
+  const daysOfWeek = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+
+  function getWeekDay(offset) {
+    const date = new Date();
+    date.setDate(date.getDate() + offset);
+    return daysOfWeek[date.getDay()];
+  }
 
   return (
     <div className={cl.FiveDayContent}>
@@ -15,13 +23,13 @@ const FiveDayContent = ({min, max, dayWeather}) => {
       <Br />
       <EveryDay id={0} min={min} max={max} weatherDay={dayWeather(0)}>сегодня</EveryDay>
       <Br />
-      <EveryDay id={1} min={min} max={max} weatherDay={dayWeather(1)}>завтра</EveryDay>
+      <EveryDay id={1} min={min} max={max} weatherDay={dayWeather(1)}>{getWeekDay(1)}</EveryDay>
       <Br />
-      <EveryDay id={2} min={min} max={max} weatherDay={dayWeather(2)}>послезавтра</EveryDay>
+      <EveryDay id={2} min={min} max={max} weatherDay={dayWeather(2)}>{getWeekDay(2)}</EveryDay>
       <Br />
-      <EveryDay id={3} min={min} max={max} weatherDay={dayWeather(3)}>через 4 дня</EveryDay>
+      <EveryDay id={3} min={min} max={max} weatherDay={dayWeather(3)}>{getWeekDay(3)}</EveryDay>
       <Br />
-      <EveryDay id={4} min={min} max={max} weatherDay={dayWeather(4)}>через 5 дней</EveryDay>
+      <EveryDay id={4} min={min} max={max} weatherDay={dayWeather(4)}>{getWeekDay(4)}</EveryDay>
     </div>
   )
 }

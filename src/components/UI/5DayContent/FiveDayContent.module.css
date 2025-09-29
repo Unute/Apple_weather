@@ -19,7 +19,8 @@
   justify-content: flex-start;
   align-items: center;
   font-size: 1.1rem;
-  color: rgb(88, 88, 88);;
+  color: rgb(88, 88, 88);
+  ;
 }
 
 .calendar {
@@ -32,16 +33,14 @@
   width: 90%;
   font-size: 1.25rem;
   align-items: center;
-  /* margin-bottom: 0.75rem; */
 }
-
 
 .dayWeek {
   text-transform: capitalize;
 }
 
 .icon {
-
+  padding-right: 2.5rem;
 }
 
 .icon_img {
@@ -50,12 +49,10 @@
 }
 
 .temp {
-  
+
   display: flex;
   align-items: center;
   margin-left: auto;
-  width: 50%;
+  width: 60%;
   gap: 10px;
 }
-
-
