@@ -14,7 +14,7 @@ const InfoSecond = ({ temp, uf, pressure, humidity }) => {
       <div className={`${cl.info_uf} ${cl.block}`}>
         <p className={cl.text}>УФ-индекс</p>
         <div className={cl.value}>{uf}</div>
-        <UVThermoCapsule uv={10} />
+        <UVThermoCapsule uv={uf} />
 
       </div>
       <div className={`${cl.info_uf} ${cl.block}`}>
