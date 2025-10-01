@@ -1,6 +1,6 @@
 .FiveDayContent {
   margin-top: 0.75rem;
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(233, 233, 233, 0.55);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
   border-radius: 1.5rem;
   max-width: 880px;
@@ -33,7 +33,7 @@
   width: 90%;
   font-size: 1.25rem;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-between;
   gap: 0.5em;
 }
